@@ -18,7 +18,7 @@ class App extends Component {
     } else {
       var list = this.state.list;
       list.push({ id: this.state.list.length + 1, todo: this.state.usertodo, });
-      this.setState({ list: list, });
+      this.setState({ list: list, usertodo: '' });
     }
   }
 
@@ -50,7 +50,7 @@ class App extends Component {
     return (<div className='text-center' id='body' style={{position: 'absolute', top: 0, bottom: 0, right: 0, left: 0}}>
       <h1 className='display-1'>Todo App</h1>
       <div style={{ position: 'relative', top: 10, }}>
-        <input type='text' placeholder=" Enter Todo..." className='textbox' style={{ height: 35 }} onKeyDown={(e) => this.handleKey(e)} onChange={(e) => this.setState({ usertodo: e.target.value })}></input>
+        <input type='text' placeholder=" Enter Todo..." value={this.state.usertodo} className='textbox' style={{ height: 35 }} onKeyDown={(e) => this.handleKey(e)} onChange={(e) => this.setState({ usertodo: e.target.value })}></input>
         <button className='btn btn-dark mx-1' onClick={this.onAddItem}>Add Todo</button>
         <div style={{ position: 'relative', top: 20, left: 10, }}>
           <div>
